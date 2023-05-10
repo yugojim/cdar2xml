@@ -7,4 +7,4 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 CMD ["uwsgi", "uwsgi.ini"]
-EXPOSE 8181
+EXPOSE 8100
