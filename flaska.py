@@ -5,9 +5,10 @@ import requests
 import xmltodict
 import Function
 
-fhir = 'http://104.208.68.39:8080/fhir/'#4600VM
+#fhir = 'http://104.208.68.39:8080/fhir/'#4600VM
 #fhir = "http://61.67.8.220:8080/fhir/"#skh outside
 #fhir = "http://10.2.1.17:8080/fhir/"#skh inside
+fhir = https://sit-fhir.skh.org.tw/fhir/ #skh https
 #fhir = "http://106.105.181.72:8080/fhir/"#tpech
 
 app = Flask(__name__)
@@ -24,7 +25,7 @@ def serverstatus():
 @app.route('/DischargeSummary/', methods=['GET'])
 @cross_origin()
 def query_DischargeSummary():
-    url = fhir + 'Composition/'
+    url = fhir + 'Composition?title=出院'
     response = requests.request("GET", url, headers={}, data={}, verify=False)
     resultjson=json.loads(response.text)
     return jsonify(resultjson), 200
@@ -65,7 +66,7 @@ def delte_DischargeSummary(DischargeSummary_Id):
 @app.route('/VisitNote/', methods=['GET'])
 @cross_origin()
 def query_VisitNote():
-    url = fhir + 'Composition/'
+    url = fhir + 'Composition?title=門診'
     response = requests.request("GET", url, headers={}, data={}, verify=False)
     resultjson=json.loads(response.text)
     return jsonify(resultjson), 200
