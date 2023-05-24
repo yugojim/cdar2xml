@@ -14,7 +14,8 @@ import Function
 #sa	資源值在參數值之後開始	參數值的範圍與資源值的範圍不重疊，參數值上方的範圍包含資源值的範圍
 #eb	資源值在參數值之前結束	參數值的範圍與資源值的範圍不重疊，參數值下面的範圍包含資源值的範圍
 #ap	資源值與參數值大致相同。#請注意，近似值的建議值是規定值的 10%（對於日期，現在是和日期之間差距的 10%），但系統可能會在適當的情況下選擇其他值
-fhir = 'http://104.208.68.39:8080/fhir/'#4600VM
+fhir = 'http://202.5.253.182:8080/fhir/'#mshtest
+#fhir = 'http://104.208.68.39:8080/fhir/'#4600VM
 #fhir = "http://61.67.8.220:8080/fhir/"#skh outside
 #fhir = "http://10.2.1.17:8080/fhir/"#skh inside
 #fhir = "https://sit-fhir.skh.org.tw/fhir/" #skh https
