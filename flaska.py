@@ -78,12 +78,13 @@ def delte_DischargeSummary(DischargeSummary_Id):
 def query_VisitNote():
     Search=''
     if request.args.get('Patient_Id') != None:
-        Search = '_id' + request.args.get('Patient_Id') + '&'
+        Search = 'patient=' + request.args.get('Patient_Id') + '&'
     if request.args.get('mtDate') != None:
         Search = Search + 'date=ge' + request.args.get('mtDate') + '&'        
     if request.args.get('ltDate') != None:
         Search = Search + 'date=le' + request.args.get('ltDate')
     url = fhir + 'Composition/?' + Search
+    #print(url)
     response = requests.request("GET", url, headers={}, data={}, verify=False)
     resultjson=json.loads(response.text)
     return jsonify(resultjson), 200
